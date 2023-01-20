@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"src\/test\/java\/tests\/Post[1:8]","start":1674180592974,"end":1674180594375,"title":"src\/test\/java\/tests\/Post[1:8] 20:09:52.974-20:09:54.375 Post request 1"},{"id":2,"group":1,"content":"src\/test\/java\/tests\/Post[2:16]","start":1674180594393,"end":1674180594882,"title":"src\/test\/java\/tests\/Post[2:16] 20:09:54.393-20:09:54.882 Post request 2"},{"id":3,"group":1,"content":"src\/test\/java\/tests\/Post[3:24]","start":1674180594894,"end":1674180595438,"title":"src\/test\/java\/tests\/Post[3:24] 20:09:54.894-20:09:55.438 Post request 3"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
